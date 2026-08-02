@@ -1,0 +1,35 @@
+---
+import "../styles/global.css";
+import Meta from "../components/Meta.astro";
+import Schema from "../components/Schema.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  schemaType?: "Organization" | "LocalBusiness" | "Event";
+}
+
+const { title, description, image, schemaType = "Organization" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Meta title={title} description={description} image={image} />
+    <Schema type={schemaType} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

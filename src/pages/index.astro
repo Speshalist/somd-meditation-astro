@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Values from "../components/Values.astro";
+import NextMeeting from "../components/NextMeeting.astro";
+import Benefits from "../components/Benefits.astro";
+import Gallery from "../components/Gallery.astro";
+import Labyrinth from "../components/Labyrinth.astro";
+import Newsletter from "../components/Newsletter.astro";
+import FAQ from "../components/FAQ.astro";
+
+const title = "Southern Maryland Meditation Community";
+const description = "Free meditation and mindfulness gatherings in Solomons and Lusby, Maryland. Everyone is welcome. Join us on the 2nd and 4th Thursdays of each month.";
+---
+
+<Layout title={title} description={description} schemaType="LocalBusiness">
+  <Hero />
+  <Values />
+  <NextMeeting />
+  <Benefits />
+  <Gallery />
+  <Labyrinth />
+  <FAQ />
+  <Newsletter />
+</Layout>

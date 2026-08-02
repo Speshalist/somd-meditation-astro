@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/images/hero.jpg";
+---
+
+<section id="top" class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0">
+    <Image
+      src={heroImage}
+      alt="Soft pastel sky over calm water, evoking peace and stillness"
+      class="w-full h-full object-cover"
+      widths={[640, 1280, 1920]}
+      sizes="100vw"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-sand-50/30 via-transparent to-sand-50/80"></div>
+  </div>
+
+  <div class="relative z-10 max-w-3xl mx-auto px-4 text-center">
+    <blockquote class="mb-8">
+      <p class="font-serif text-2xl sm:text-3xl md:text-4xl text-sage-900 leading-relaxed italic">
+        "Peace is this moment without judgement. This moment in the heart-space where everything that is, is welcome."
+      </p>
+      <footer class="mt-4 text-sage-700 font-medium">
+        ~ Dorothy Hunt
+      </footer>
+    </blockquote>
+
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a
+        href="/events"
+        class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-teal-600 text-white font-medium hover:bg-teal-700 transition-colors shadow-lg"
+      >
+        View Upcoming Gatherings
+      </a>
+      <a
+        href="/agreements"
+        class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white/80 backdrop-blur text-sage-800 font-medium hover:bg-white transition-colors border border-sage-200"
+      >
+        Read Group Agreements
+      </a>
+    </div>
+  </div>
+</section>

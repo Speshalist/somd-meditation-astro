@@ -1,0 +1,41 @@
+---
+const values = [
+  "Presence",
+  "Loving kindness",
+  "Compassion",
+  "Community",
+  "Inclusiveness",
+  "Integrity",
+  "Service",
+];
+---
+
+<section id="about" class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-3xl font-bold text-sage-900 mb-6">Our Mission</h2>
+        <p class="text-lg text-sage-700 leading-relaxed mb-8">
+          To create a supportive community to learn and practice meditation and mindfulness.
+        </p>
+
+        <h2 class="text-3xl font-bold text-sage-900 mb-6">We Envision</h2>
+        <p class="text-lg text-sage-700 leading-relaxed">
+          A world where mindfulness and meditation empower individuals to cultivate inner peace and resilience, contributing to a more compassionate and connected society.
+        </p>
+      </div>
+
+      <div class="bg-sand-50 rounded-2xl p-8">
+        <h3 class="text-xl font-bold text-sage-900 mb-6">Our Core Values</h3>
+        <ul class="space-y-3">
+          {values.map((value) => (
+            <li class="flex items-center gap-3">
+              <span class="flex-shrink-0 w-2 h-2 rounded-full bg-teal-500"></span>
+              <span class="text-sage-800 font-medium">{value}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

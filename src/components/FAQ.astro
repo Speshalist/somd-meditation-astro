@@ -1,0 +1,54 @@
+---
+const quickFaqs = [
+  {
+    q: "Is there a cost to attend?",
+    a: "No. Our gatherings are free and open to everyone. Donations to The Mission are gratefully accepted but never required.",
+  },
+  {
+    q: "Do I need to register in advance?",
+    a: "No registration needed. Just show up on the 2nd or 4th Thursday at 6:30 PM.",
+  },
+  {
+    q: "Is prior meditation experience required?",
+    a: "Not at all. Beginners and experienced practitioners are equally welcome. We offer guidance for those new to the practice.",
+  },
+  {
+    q: "Is this a religious group?",
+    a: "No. Our practice is universal and non-sectarian. We welcome people of all faiths and no faith.",
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-sage-900 mb-3">Common Questions</h2>
+      <p class="text-sage-600">Quick answers to what newcomers usually ask.</p>
+    </div>
+
+    <div class="space-y-4">
+      {quickFaqs.map((item) => (
+        <details class="group bg-sand-50 rounded-xl border border-sage-100 open:bg-white open:shadow-sm transition-all">
+          <summary class="flex items-center justify-between cursor-pointer p-5 text-left">
+            <span class="font-semibold text-sage-900 pr-4">{item.q}</span>
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-sm group-open:rotate-180 transition-transform">
+              ↓
+            </span>
+          </summary>
+          <div class="px-5 pb-5 text-sage-700 leading-relaxed">
+            {item.a}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/faq" class="inline-flex items-center text-teal-700 font-medium hover:text-teal-800 transition-colors">
+        View all frequently asked questions
+        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

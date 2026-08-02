@@ -1,0 +1,81 @@
+---
+const navItems = [
+  { label: "Home", href: "/#top" },
+  { label: "About", href: "/#about" },
+  { label: "Join Us", href: "/#join" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Events", href: "/events" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Agreements", href: "/agreements" },
+];
+---
+
+<header class="sticky top-0 z-50 bg-sand-50/80 backdrop-blur-md border-b border-sage-100">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="flex items-center justify-between h-16">
+      <a href="/" class="text-sage-800 font-medium text-lg tracking-tight hover:text-teal-700 transition-colors">
+        SOMD Meditation
+      </a>
+
+      <ul class="hidden md:flex items-center gap-1">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="px-3 py-2 rounded-md text-sm font-medium text-sage-700 hover:text-teal-700 hover:bg-sage-100/50 transition-colors"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href="/events"
+        class="hidden md:inline-flex items-center px-4 py-2 rounded-full bg-teal-600 text-white text-sm font-medium hover:bg-teal-700 transition-colors shadow-sm"
+      >
+        View Events
+      </a>
+
+      <!-- Mobile menu button -->
+      <button
+        id="menu-btn"
+        class="md:hidden p-2 rounded-md text-sage-700 hover:bg-sage-100"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-sage-100 bg-sand-50">
+    <ul class="px-4 py-3 space-y-1">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="block px-3 py-2 rounded-md text-base font-medium text-sage-700 hover:text-teal-700 hover:bg-sage-100/50"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      menu.classList.toggle("hidden");
+    });
+  }
+</script>

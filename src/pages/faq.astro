@@ -1,0 +1,124 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Frequently Asked Questions";
+const description = "Answers about our free meditation gatherings in Solomons and Lusby, Maryland. No experience needed. Everyone is welcome.";
+
+const faqs = [
+  {
+    q: "Is there a free meditation group near Solomons, Maryland?",
+    a: "Yes. The Southern Maryland Meditation Community meets twice a month at the Solomons Mission Center (14454 Solomons Island Road, Solomons, MD). Our gatherings are completely free and open to the public.",
+  },
+  {
+    q: "When is the next mindfulness class in Calvert County?",
+    a: "We meet on the 2nd and 4th Thursday of every month from 6:30 PM to 8:00 PM at the Solomons Mission Center. You can check our events calendar for the exact upcoming dates, or join our newsletter for reminders.",
+  },
+  {
+    q: "Can beginners join meditation groups in Southern Maryland?",
+    a: "Absolutely. Beginners are warmly welcomed. We practice mindful movements and meditation together, and we discuss how to bring mindfulness into daily life. No prior experience is necessary.",
+  },
+  {
+    q: "Do I need to register for meditation classes?",
+    a: "No registration is required. Just arrive a few minutes early to settle in. We recommend reading our group agreements beforehand to help maintain a supportive space for everyone.",
+  },
+  {
+    q: "How much does it cost to attend?",
+    a: "Our gatherings are free. Donations to The Mission are gratefully accepted in the form of cash or contributions to the mission food pantry, but they are never required.",
+  },
+  {
+    q: "Is this a religious or spiritual group?",
+    a: "No. Our practice is universal and non-sectarian. We welcome people of all faiths, spiritual traditions, and those with no religious affiliation. The focus is on mindfulness and meditation as human practices.",
+  },
+  {
+    q: "What should I bring to a meditation gathering?",
+    a: "For our indoor meetings at the Solomons Mission Center, just bring yourself. Chairs are available. For our outdoor labyrinth pop-up meditations in Lusby, bring a chair or blanket to sit on, and insect repellent if needed.",
+  },
+  {
+    q: "Where is the labyrinth in Lusby, MD?",
+    a: "The labyrinth is located at 10210 H G Trueman Road, Lusby, MD 20657. We hold occasional pop-up meditations there. Dates are announced through our email newsletter and Google Calendar.",
+  },
+  {
+    q: "What happens during a typical gathering?",
+    a: "We begin with mindful movements, followed by a period of seated meditation, and then open discussion about practicing mindfulness in daily life. The atmosphere is relaxed, supportive, and confidential.",
+  },
+  {
+    q: "Are children welcome at meditation gatherings?",
+    a: "Yes, children are welcome if they can participate quietly or sit with a parent. We are an inclusive community and understand that families practice together.",
+  },
+  {
+    q: "What are the group agreements?",
+    a: "Our agreements include confidentiality, speaking from personal experience using 'I' statements, being concise, listening with presence and curiosity, and refraining from giving unsolicited advice. You can read the full agreements here.",
+    link: { text: "Read full agreements →", href: "/agreements" },
+  },
+  {
+    q: "How can I stay updated on events?",
+    a: "The best way is to join our email newsletter or subscribe to our Google Calendar. We also announce pop-up labyrinth meditations and any schedule changes through the newsletter.",
+  },
+];
+
+// FAQPage structured data
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
+    },
+  })),
+};
+---
+
+<Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <nav class="text-sm text-sage-500 mb-8">
+      <a href="/" class="hover:text-teal-700 transition-colors">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-sage-800">FAQ</span>
+    </nav>
+
+    <h1 class="text-4xl font-bold text-sage-900 mb-4">Frequently Asked Questions</h1>
+    <p class="text-lg text-sage-600 mb-12 max-w-2xl">
+      Everything you might want to know before joining us. If you don't see your question here, 
+      feel free to reach out through our <a href="https://www.facebook.com/somdmeditationcommunity" target="_blank" rel="noopener noreferrer" class="text-teal-700 hover:underline">Facebook page</a>.
+    </p>
+
+    <div class="space-y-4">
+      {faqs.map((item, i) => (
+        <details class="group bg-white rounded-xl border border-sage-100 shadow-sm open:shadow-md transition-all">
+          <summary class="flex items-start justify-between cursor-pointer p-5 text-left">
+            <span class="font-semibold text-sage-900 pr-4">{item.q}</span>
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-sm group-open:rotate-180 transition-transform mt-0.5">
+              ↓
+            </span>
+          </summary>
+          <div class="px-5 pb-5 text-sage-700 leading-relaxed">
+            <p>{item.a}</p>
+            {item.link && (
+              <a href={item.link.href} class="inline-block mt-3 text-teal-700 font-medium hover:text-teal-800 transition-colors">
+                {item.link.text}
+              </a>
+            )}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="mt-12 p-6 bg-teal-50 rounded-xl border border-teal-100 text-center">
+      <h2 class="font-bold text-sage-900 mb-2">Ready to join us?</h2>
+      <p class="text-sage-700 text-sm mb-4">No registration needed. Just show up.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/events" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-teal-600 text-white text-sm font-medium hover:bg-teal-700 transition-colors">
+          View Events Calendar
+        </a>
+        <a href="/agreements" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-sage-300 text-sage-700 text-sm font-medium hover:bg-sage-50 transition-colors">
+          Read Group Agreements
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

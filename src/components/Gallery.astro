@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+const images = [
+  { src: "earthaltar5", alt: "Earth altar meditation setup with natural elements" },
+  { src: "labyrinth-walk", alt: "Community members walking the labyrinth path" },
+  { src: "mindful-art", alt: "Mindful art session with Deb" },
+  { src: "earthaltar5-2", alt: "Another view of the earth altar" },
+  { src: "meditation-group", alt: "Group seated in meditation at the Solomons Mission Center" },
+  { src: "labyrinth-aerial", alt: "Aerial view of the labyrinth" },
+  { src: "outdoor-meditation", alt: "Outdoor meditation gathering" },
+  { src: "community-circle", alt: "Community circle discussion" },
+];
+---
+
+<section id="gallery" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-sage-900 mb-3">Community Moments</h2>
+      <p class="text-sage-600">Glimpses of our gatherings, labyrinth walks, and shared practice.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {images.map((img, i) => (
+        <figure class="group relative aspect-square overflow-hidden rounded-xl bg-sage-100">
+          {/* Placeholder — replace with actual imported images */}
+          <div class="w-full h-full bg-gradient-to-br from-teal-100 to-sage-200 flex items-center justify-center">
+            <span class="text-sage-500 text-xs font-medium px-2 text-center">{img.alt}</span>
+          </div>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-sage-900/80 to-transparent p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white text-xs">{img.alt}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <p class="text-center text-sm text-sage-500 mt-6">
+      Replace the placeholder divs above with <code>&lt;Image src=... /&gt;</code> imports once you add your photos to <code>src/assets/images/</code>.
+    </p>
+  </div>
+</section>

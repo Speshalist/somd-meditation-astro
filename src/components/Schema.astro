@@ -1,0 +1,91 @@
+---
+interface Props {
+  type?: "Organization" | "LocalBusiness" | "Event";
+}
+
+const { type = "Organization" } = Astro.props;
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Southern Maryland Meditation Community",
+  url: "https://somdmeditationcommunity.org",
+  logo: "https://somdmeditationcommunity.org/favicon.svg",
+  description: "A supportive community to learn and practice meditation and mindfulness in Southern Maryland.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "P.O. Box 54",
+    addressLocality: "Lusby",
+    addressRegion: "MD",
+    postalCode: "20657",
+    addressCountry: "US",
+  },
+  sameAs: [
+    "https://www.facebook.com/somdmeditationcommunity",
+  ],
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Southern Maryland Meditation Community",
+  description: "Free meditation and mindfulness gatherings in Solomons and Lusby, Maryland.",
+  url: "https://somdmeditationcommunity.org",
+  telephone: "",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "14454 Solomons Island Road",
+    addressLocality: "Solomons",
+    addressRegion: "MD",
+    postalCode: "20688",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "38.3254",
+    longitude: "-76.4583",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Thursday"],
+    opens: "18:30",
+    closes: "20:00",
+  },
+  priceRange: "Free",
+};
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Evening Mindfulness Practice",
+  description: "Join us for mindful movements, meditation, and discussion. Everyone is welcome. No registration required.",
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  location: {
+    "@type": "Place",
+    name: "Solomons Mission Center",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "14454 Solomons Island Road",
+      addressLocality: "Solomons",
+      addressRegion: "MD",
+      postalCode: "20688",
+      addressCountry: "US",
+    },
+  },
+  organizer: {
+    "@type": "Organization",
+    name: "Southern Maryland Meditation Community",
+    url: "https://somdmeditationcommunity.org",
+  },
+  isAccessibleForFree: true,
+};
+
+const schemas: Record<string, object> = {
+  Organization: orgSchema,
+  LocalBusiness: localBusinessSchema,
+  Event: eventSchema,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemas[type])} />

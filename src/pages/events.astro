@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Events & Calendar";
+const description = "View upcoming meditation gatherings, pop-up labyrinth walks, and community events with the Southern Maryland Meditation Community.";
+---
+
+<Layout title={title} description={description} schemaType="Event">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <nav class="text-sm text-sage-500 mb-8">
+      <a href="/" class="hover:text-teal-700 transition-colors">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-sage-800">Events</span>
+    </nav>
+
+    <h1 class="text-4xl font-bold text-sage-900 mb-4">Upcoming Events</h1>
+    <p class="text-lg text-sage-600 mb-10 max-w-2xl">
+      Join us for regular evening mindfulness practice and special pop-up events at the labyrinth.
+      All gatherings are free and open to everyone.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl shadow-sm border border-sage-100 overflow-hidden">
+          <div class="aspect-video w-full bg-sage-100">
+            {/* Google Calendar Embed — replace YOUR_CALENDAR_ID */}
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=1&mode=MONTH"
+              style="border: 0"
+              width="100%"
+              height="100%"
+              frameborder="0"
+              scrolling="no"
+              title="SOMD Meditation Community Events Calendar"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+        <p class="text-sm text-sage-500 mt-3">
+          Subscribe to our calendar or
+          <a href="/" class="text-teal-700 hover:underline">join the newsletter</a> for reminders.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-teal-50 rounded-xl p-6 border border-teal-100">
+          <h2 class="font-bold text-sage-900 mb-2">Regular Gathering</h2>
+          <p class="text-sm text-sage-700 mb-1"><strong>When:</strong> 2nd & 4th Thursdays, 6:30–8:00 PM</p>
+          <p class="text-sm text-sage-700 mb-3"><strong>Where:</strong> Solomons Mission Center</p>
+          <a href="https://maps.google.com/?q=14454+Solomons+Island+Road+Solomons+MD" target="_blank" rel="noopener noreferrer" class="text-sm text-teal-700 hover:underline">Get directions →</a>
+        </div>
+
+        <div class="bg-sand-50 rounded-xl p-6 border border-sand-200">
+          <h2 class="font-bold text-sage-900 mb-2">Labyrinth Pop-ups</h2>
+          <p class="text-sm text-sage-700 mb-3">Occasional outdoor meditations at the labyrinth in Lusby. Check the calendar or newsletter for dates.</p>
+          <p class="text-xs text-sage-500">10210 H G Trueman Road, Lusby, MD</p>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 border border-sage-100 shadow-sm">
+          <h2 class="font-bold text-sage-900 mb-2">New to the group?</h2>
+          <p class="text-sm text-sage-600 mb-3">Everyone is welcome. No registration or prior experience required.</p>
+          <a href="/agreements" class="inline-flex items-center text-sm font-medium text-teal-700 hover:text-teal-800">Read group agreements →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

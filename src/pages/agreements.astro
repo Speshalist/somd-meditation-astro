@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Group Agreements";
+const description = "Our group agreements for mindful listening and sharing at Southern Maryland Meditation Community gatherings.";
+
+const agreements = [
+  {
+    title: "Confidentiality",
+    text: "When we choose to share our experiences, insights and struggles with the group, we agree to confidentiality.",
+  },
+  {
+    title: "Share from your own experience",
+    text: "Try using "I" statements.",
+  },
+  {
+    title: "Be concise when you share",
+    text: "Being brief and saying what is essential helps others take in what you are sharing and provides space for others to share.",
+  },
+  {
+    title: "Be present when listening",
+    text: "Try to focus on listening to the person who is sharing and trust that you will share what is important when it is your turn to speak.",
+  },
+  {
+    title: "Listen to understand",
+    text: "Listen with curiosity and appreciation.",
+  },
+  {
+    title: "Refrain from responding",
+    text: "Refrain from responding to someone's share unless they have asked for input.",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <nav class="text-sm text-sage-500 mb-8">
+      <a href="/" class="hover:text-teal-700 transition-colors">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-sage-800">Group Agreements</span>
+    </nav>
+
+    <h1 class="text-4xl font-bold text-sage-900 mb-4">Group Agreements</h1>
+    <p class="text-lg text-sage-600 mb-10">
+      We create a supportive environment through mindful listening and sharing. 
+      We follow these guidelines to support this practice:
+    </p>
+
+    <div class="space-y-6">
+      {agreements.map((item, i) => (
+        <div class="flex gap-4 bg-white rounded-xl p-6 border border-sage-100 shadow-sm">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-sm">
+            {i + 1}
+          </span>
+          <div>
+            <h2 class="font-semibold text-sage-900 mb-1">{item.title}</h2>
+            <p class="text-sage-600 leading-relaxed">{item.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 p-6 bg-sand-50 rounded-xl border border-sand-200">
+      <p class="text-sage-700 text-sm leading-relaxed">
+        <strong>Please read these agreements before attending.</strong> They help us maintain a safe, welcoming space for everyone who joins our practice.
+      </p>
+    </div>
+
+    <div class="mt-8 flex gap-3">
+      <a
+        href="/events"
+        class="inline-flex items-center px-5 py-2.5 rounded-full bg-teal-600 text-white text-sm font-medium hover:bg-teal-700 transition-colors"
+      >
+        View Upcoming Gatherings
+      </a>
+      <a
+        href="/"
+        class="inline-flex items-center px-5 py-2.5 rounded-full border border-sage-300 text-sage-700 text-sm font-medium hover:bg-sage-50 transition-colors"
+      >
+        Back to Home
+      </a>
+    </div>
+  </div>
+</Layout>

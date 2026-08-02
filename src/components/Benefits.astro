@@ -1,0 +1,48 @@
+---
+const benefits = [
+  {
+    title: "Shared Connection",
+    text: "Feeling a shared connection with others by tapping into the same silence and source of peace at the same time.",
+  },
+  {
+    title: "Acceptance & Belonging",
+    text: "An environment of acceptance and belonging are important conditions for social animals like us to thrive.",
+  },
+  {
+    title: "Build a Habit",
+    text: "Meditating with a group encourages us to do it and maybe develop a habit.",
+  },
+  {
+    title: "Strengthen Intentions",
+    text: "A group can help add strength to our intentions.",
+  },
+  {
+    title: "Learn from Others",
+    text: "Hearing others' experiences, challenges, and insights can be encouraging and supportive.",
+  },
+  {
+    title: "Ripple Effect",
+    text: "A group meditating together can generate a ripple effect of peace and positivity into the surrounding environment.",
+  },
+];
+---
+
+<section class="py-20 bg-sand-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-sage-900 mb-3">Benefits of Meditating with a Group</h2>
+      <p class="text-sage-600 max-w-2xl mx-auto">
+        There is something powerful about practicing mindfulness alongside others. Here is what our community has found.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {benefits.map((b) => (
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-sage-100 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold text-sage-900 mb-2">{b.title}</h3>
+          <p class="text-sm text-sage-600 leading-relaxed">{b.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
